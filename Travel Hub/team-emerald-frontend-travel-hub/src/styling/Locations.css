@@ -1,0 +1,36 @@
+.locationsCard {
+  width: 22rem;
+  height: 25rem;
+  margin-top: 15px;
+}
+
+.locationsRow {
+  margin-top: 15px;
+  margin: 15px;
+}
+
+.locationsButton {
+  margin-top: 7px;
+}
+
+.activitiesCard {
+  width: 22rem;
+  height: 40rem;
+  margin-top: 15px;
+}
+
+.smallImage {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.cardActivity {
+  margin: auto;
+  width: 90%;
+  padding: 10px;
+}
+
+.mediumFont {
+  font-size:medium;
+}

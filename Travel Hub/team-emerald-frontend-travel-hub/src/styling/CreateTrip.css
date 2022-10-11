@@ -1,0 +1,56 @@
+h1 {
+    padding: 50px;
+}
+
+
+.input-field {
+    font-size:.85em;
+}
+
+h6 {
+    padding: 10px;
+    align-content: left;
+}
+
+input {
+    width: 100%
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+h6 {
+    text-align: left;
+}
+
+.form-content {
+    width: 60%;
+    margin: auto
+}
+
+.dates {
+    max-width: 300px;
+    margin: auto;
+    border: 1px solid #ffffff;
+}
+
+.button {
+    padding: 20px;
+}
+
+.form-group {
+    margin: auto;
+    max-width: 300px;
+}
+
+.input-group-text {
+    margin: auto;
+}
+
+.collab {
+    max-width: 400px;
+}
