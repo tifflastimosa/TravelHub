@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "580016790645",
+    "project_id": "pettin-8ae4b",
+    "storage_bucket": "pettin-8ae4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580016790645:android:2436eed16df1d1b8c1ec3c",
+        "android_client_info": {
+          "package_name": "edu.neu.madcourse.pettin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580016790645-nkpqmer7bk4jof8obdcuhl7e1j3kpjks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD36XUM7QYNMGJvANNtGL5_gTydzb1pb2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580016790645-nkpqmer7bk4jof8obdcuhl7e1j3kpjks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

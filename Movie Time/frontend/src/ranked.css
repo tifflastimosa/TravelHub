@@ -1,0 +1,24 @@
+.ranked {
+    padding: 20px;
+    display: flex;
+}
+
+.inner-left {
+    width: 30%;
+    float: left;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    /* border-style: dashed; */
+    /* border-color: red; */
+}  
+
+.inner-right {
+    /* border-style: dashed; */
+    /* border-color: red; */
+    float: right;
+}  
+
+.background {
+    background-color: lavender;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+<!--    <title>Activity Count Parallel Graph</title>-->
+<!--    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js}" type="text/javascript" ></script>-->
+<!--    <link href="../static/css/spring-core.css"-->
+<!--        th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>-->
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Spring Boot Web Application with Thymeleaf</title>
+    <!-- Twitter Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+</head>
+<body>
+
+<h2> The Quantified Self</h2>
+
+
+<div class="container">
+    <h2> Activity Count Table </h2>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Year</th>
+                    <th>Activity</th>
+                    <th>Activity Count</th>
+                </tr>
+                <tr th:each="activitiesCount: ${activitiesCount}">
+                    <td th:text="${activitiesCount._id.year}">Year</td>
+                    <td th:text="${activitiesCount._id.activity}">Activity</td>
+                    <td th:text="${activitiesCount.count}">Activity Count</td>
+                </tr>
+            </table>
+</div>
+
+
+</body>
+</html>

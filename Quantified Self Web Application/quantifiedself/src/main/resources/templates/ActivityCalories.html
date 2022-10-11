@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta charset=utf-8 />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+
+</head>
+<body>
+<div class="container">
+    <h2 align="center">Activities Bar Graph</h2>
+
+    <div id="container"
+         style="width: 700px; height: 700px; margin: 0 auto"></div>
+</div>
+<script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script th:inline="javascript">
+
+    function caloriesForYear(activityCalorieObj, activity, year) {
+        if (activityCalorieObj._id.activity == activity &&
+            activityCalorieObj._id.year == year) {
+            return activityCalorieObj.calories
+        } else {
+            return 0
+        }
+    }
+
+    function filter(){
+        const year = document.getElementById("chooseYear").value;
+        const activityCalories =  [[${activitiesCalories}]]
+        const calories =
+            activityCalories
+                .filter(function(ac){return ac._id.year==year})
+                .map(function(ac){return ac.calories})
+        console.log(calories)
+
+        var new_cals
+
+        new_cals = [[${uniqueActivity}]].map(function(activity){
+            const foo =
+                activityCalories.filter(function(ac){return ac._id.year == year})
+                    .filter(function(ac){return ac._id.activity == activity})
+            console.log(foo)
+            if (foo.length == 0)
+                return 0
+            else return foo[0].calories
+        })
+
+
+        console.log(new_cals)
+        console.log(this.chart)
+        console.log(this.chart.series)
+        console.log(this.chart.series[0])
+        console.log(this.chart.series[0].data)
+        this.chart.series[0].setData(new_cals)
+
+    }
+
+    var chart
+
+    $(document).ready(function(){
+        chart = Highcharts.chart('container', {
+            chart: {
+                type: 'column',
+                load: function() {
+                    chart = this;
+                    filter();
+                }
+            },
+            title: {
+                text: 'Activity Calories Per Year'
+            },
+            subtitle: {
+                text: 'Filter YEAR to get comparison graph'
+            },
+            xAxis: {
+                categories: [[${uniqueActivity}]],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                // max:100000,
+                title: {
+                    text: 'Activity Calories'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} K</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    showInLegend: true,
+                    pointPadding: 0.05,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Calories',
+                colorByPoint: true,
+                data: [[${calorie}]]
+            }]
+        });
+    });
+</script>
+
+<div class="chart-diplayh">
+    <div style="width: 60%; margin: auto">
+        <canvas id="bar"></canvas>
+        <!--        <form action="" onsubmit="filter();return false;">-->
+        <div class="form-group blu-margin">
+            <!--            <input-->
+            <!--                    type="hidden"-->
+            <!--                    th:name="${_csrf.parameterName}"-->
+            <!--                    th:value="${_csrf.token}" />-->
+            <select id="chooseYear">
+                <option value="0">Select Year</option>
+                <option th:each="year : ${uniqueYear}" th:value="${year}"
+                        th:text="${year}"></option>
+            </select>
+            <!--        </div>-->
+            <button class="button" onclick="filter()">Apply
+                Filter</button>
+            <!--        </form>-->
+            <!--        <select [(ngModel)]="uniqueYear" style="width: 100px;height: 30px;">-->
+            <!--            var start = Math.min([[${uniqueYear}]]);-->
+            <!--            var end = Math.max([[${uniqueYear}]]);-->
+            <!--            var options = "";-->
+            <!--            for (let i = start; i <= end; i++) {-->
+            <!--            options += "<option>"+ i +"</option>";-->
+            <!--            }-->
+            <!--        </select>&nbsp;&nbsp;-->
+
+            <!--            var year = 1900;-->
+            <!--            var till = 2014;-->
+            <!--            var options = "";-->
+            <!--            for(var y=year; y<=till; y++){-->
+            <!--            options += "<option>"+ y +"</option>";-->
+            <!--            }-->
+            <!--            document.getElementById("year").innerHTML = options;-->
+
+            <!--                        var year = 1900;-->
+            <!--                        var till = 2014;-->
+            <!--                        var options = "";-->
+            <!--                        for(var y=year; y<=till; y++){-->
+            <!--                            <option value='y'>$y</option>-->
+            <!--                        }-->
+            <!--                        document.getElementById("year").innerHTML = options;-->
+            <!--            </select>&nbsp;&nbsp;&ndash;&gt;-->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

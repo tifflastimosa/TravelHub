@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="initial_weight_slider_values">
+        <item>20.0</item>
+        <item>70.0</item>
+    </array>
+    <array name="initial_age_slider_values">
+        <item>2</item>
+        <item>7</item>
+    </array>
+    <array name="initial_energy_slider_values">
+        <item>1</item>
+        <item>3</item>
+    </array>
+</resources>

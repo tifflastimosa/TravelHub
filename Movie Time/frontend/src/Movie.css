@@ -1,0 +1,19 @@
+.background {
+    background-color: lavender;
+}
+
+div.reviewsText {
+    width: 100%;
+}
+
+div.poster {
+    margin: 20px;
+}
+
+p.review {
+    white-space: pre-line;
+}
+
+.bigPicture {
+    float: right;
+}

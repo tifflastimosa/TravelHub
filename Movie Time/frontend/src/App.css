@@ -1,0 +1,40 @@
+.App {
+  background-color: lavender;
+  min-height: 500vh;
+  padding-bottom: 100px;
+}
+
+body {
+  overflow: hidden;
+}
+
+.text-to-right {
+  direction: rtl;
+  text-align: right;
+}
+
+.navbar-brand.brand {
+  color: white;
+  padding: 0;
+}
+
+.navbar-nav.nav-link.link {
+  color: white!important;
+}
+
+.navItem {
+  color: white!important;
+}
+
+.nav-link {
+  padding: 0;
+}
+
+.main-container {
+  margin-top: 20px;
+}
+
+img.moviesLogo {
+  height: 50px;
+  padding-right: 5px;
+}
